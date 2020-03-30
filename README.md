@@ -1,3 +1,14 @@
+### Discussion:
+
+
+**Topics to discuss:**
+- Backend Development
+- Request and Response Cycle
+- What do we expect as a response?
+- Compare expected data with dummy data file in React (They should be the same)
+
+(Add discussion link here)
+
 ### Setup Nodejs:
 
 1. Create a new project folder:
@@ -38,13 +49,19 @@ const express = require("express");
 const app = express();
 ```
 
-3. Explain that to run the application, we need to do the configuration manually using `app.listen()` and passing it the port number.
+3. Run the app and show them that we have no idea where the app is running:
+
+```shell
+    node app.js
+```
+
+4. Explain that to see the application somewhere, we need to do the configuration manually using `app.listen()` and passing it the port number.
 
 ```javascript
 app.listen(3000);
 ```
 
-4. Run the app and show them:
+5. Run the app **again** and show them:
 
 ```shell
     node app.js
@@ -53,7 +70,7 @@ app.listen(3000);
 - The `Cannot GET /` error
 - The terminal (no indication that the server is running)
 
-5. Add the callback function
+6. Add the callback function
 
 ```javascript
 app.listen(3000, () => {
@@ -61,21 +78,25 @@ app.listen(3000, () => {
 });
 ```
 
-6. Show them that our changes are not showing. We need to restart the server every time!! (Remind them that React was a blessing)
+7. Show them that our changes are not showing. We need to restart the server every time!! (Remind them that React was a blessing). Run the app **again**:
 
-7. Explain `nodemon` and install it:
+```shell
+    node app.js
+```
+
+8. Explain `nodemon` and install it:
 
 ```shell
     yarn global add nodemon
 ```
 
-8. Run it and make changes to the console.log:
+9. Run it and make changes to the console.log:
 
 ```shell
     nodemon app.js
 ```
 
-9. Tell them how much you miss using `yarn start` and explain scripting
+10. Tell them how much you miss using `yarn start` and explain scripting
 
 ```javascript
 {
@@ -102,7 +123,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-2. Show them what happens if you remove the response (app will load forever).
+2. Show them what happens if you don't have a response (app will load forever).
 
 3. Explain that every request needs a response. Talk about response methods and that we will depend heavily on JSON responses.
 
@@ -113,7 +134,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-4. Create another route:
+4. Copy the data from your React app to show them that this should be coming from the backend:
 
 ```javascript
 const cookies = [
@@ -130,7 +151,12 @@ const cookies = [
     name: "Salted Caramel Cookies"
   }
 ];
+```
 
+
+5. Create a route that represents the list of cookies:
+
+```javascript
 app.get("/cookies", (req, res) => {
   res.json(cookies);
 });
