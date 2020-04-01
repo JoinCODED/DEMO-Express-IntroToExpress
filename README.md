@@ -67,7 +67,7 @@ app.listen(3000);
     node app.js
 ```
 
-- Open the browser and go to `localhost:3000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called.
+- Open the browser and go to `localhost:3000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
 - The terminal (no indication that the server is running)
 
 6. The `listen()` method takes two arguments: the port number which will be 3000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
