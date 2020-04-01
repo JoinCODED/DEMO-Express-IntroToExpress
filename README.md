@@ -55,22 +55,22 @@ const app = express();
     node app.js
 ```
 
-4. Explain that to see the application somewhere, we need to do the configuration manually using `app.listen()` and passing it the port number.
+4. To see the application somewhere, we need to set our development server manually using the listen method and passing it the port number.
 
 ```javascript
 app.listen(3000);
 ```
 
-5. Run the app **again** and show them:
+5. Run the app **again**:
 
 ```shell
     node app.js
 ```
 
-- The `Cannot GET /` error
+- Open the browser and go to `localhost:3000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called.
 - The terminal (no indication that the server is running)
 
-6. Add the callback function
+6. The `listen()` method takes two arguments: the port number which will be 3000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
 
 ```javascript
 app.listen(3000, () => {
@@ -78,25 +78,25 @@ app.listen(3000, () => {
 });
 ```
 
-7. Show them that our changes are not showing. We need to restart the server every time!! (Remind them that React was a blessing). Run the app **again**:
+7. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
 
 ```shell
     node app.js
 ```
 
-8. Explain `nodemon` and install it:
+8. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
 
 ```shell
     yarn global add nodemon
 ```
 
-9. Run it and make changes to the console.log:
+9. Run it and make changes to the `console.log` in `app.listen`:
 
 ```shell
     nodemon app.js
 ```
 
-10. Tell them how much you miss using `yarn start` and explain scripting
+10. Do you miss `yarn start`? It's okay, we can still use it by writing a script in `package.json`. Open your React project and take a look at the written scripts.
 
 ```javascript
 {
@@ -110,12 +110,12 @@ app.listen(3000, () => {
 
 ### Routers:
 
-1. Create your first route. Explain that every route has the following:
+1. Create your first route. Every route has the following:
 
-- app
-- method
-- route path (URL)
-- handling function
+- app: our express app instance
+- method: an http method (get, post, put, etc.)
+- route path (URL): the URL that will call this route when a request is sent to it.
+- handling function: what do you want to happen when this route is called?
 
 ```javascript
 app.get("/", (req, res) => {
@@ -123,9 +123,9 @@ app.get("/", (req, res) => {
 });
 ```
 
-2. Show them what happens if you don't have a response (app will load forever).
+2. What happens if you don't send back a response? App will load forever.
 
-3. Explain that every request needs a response. Talk about response methods and that we will depend heavily on JSON responses.
+3. Every request needs a response. Since we're sending back a list of items, the data must be in JSON format using JSON responses.
 
 ```javascript
 app.get("/", (req, res) => {
@@ -134,7 +134,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-4. Copy the data from your React app to show them that this should be coming from the backend:
+4. Copy the data from your React app (data should be coming from the backend):
 
 ```javascript
 const cookies = [
@@ -154,10 +154,12 @@ const cookies = [
 ```
 
 
-5. Create a route that represents the list of cookies:
+5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cakes` and the we will pass the array of cakes to the `res.json` method.
 
 ```javascript
 app.get("/cookies", (req, res) => {
   res.json(cookies);
 });
 ```
+
+6. Test on web browser. Since it's a `get` method we can use the browser for testing as it's default method when making a request is `get`. 
