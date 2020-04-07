@@ -134,7 +134,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-4. Copy the data from your React app (data should be coming from the backend):
+4. Create a new file for your data, let's call it `cookies.js`. Copy the data from your React app (data should be coming from the backend) and export it:
 
 ```javascript
 const cookies = [
@@ -153,8 +153,21 @@ const cookies = [
 ];
 ```
 
+5. To export our data, we will use `export.modules` which is used to export modules in nodejs. We will add it at the end of our `cookies.js` file.
 
-5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cakes` and the we will pass the array of cakes to the `res.json` method.
+```javascript
+module.exports = {
+  cookies
+};
+```
+
+6. Import your data in `app.js`. This is equivalent to the import in React.
+
+```javascript
+const cookies = require("./cookies");
+```
+
+7. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cakes` and the we will pass the array of cakes to the `res.json` method.
 
 ```javascript
 app.get("/cookies", (req, res) => {
@@ -162,4 +175,4 @@ app.get("/cookies", (req, res) => {
 });
 ```
 
-6. Test on web browser. Since it's a `get` method we can use the browser for testing as it's default method when making a request is `get`. 
+8. Test on web browser. Since it's a `get` method we can use the browser for testing as it's default method when making a request is `get`. 
