@@ -4,7 +4,7 @@
 **Topics to discuss:**
 - Backend Development
 - Request and Response Cycle
-- What do we expect as a response?
+- What do we expect from a request? What do we send as a repsonse?
 - Compare expected data with dummy data file in React (They should be the same)
 
 (Add discussion link here)
