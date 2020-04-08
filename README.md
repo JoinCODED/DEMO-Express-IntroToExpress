@@ -108,7 +108,7 @@ app.listen(3000, () => {
 }
 ```
 
-### Routers:
+### Routes:
 
 1. Create your first route. Every route has the following:
 
@@ -134,7 +134,30 @@ app.get("/", (req, res) => {
 });
 ```
 
-4. Create a new file for your data, let's call it `cookies.json`. Copy the data from your React app (data should be coming from the backend) and export it:
+4. Test your first API in a web browser
+
+### Cookie List:
+
+1. Create a new file for your data, let's call it `cookies.json`. Copy the data from your React app (as the data should be coming from the backend now).
+
+```javascript
+const cookies = [
+  {
+    id: 1,
+    name: "Chocolate Chip Cookies"
+  },
+  {
+    id: 2,
+    name: "Peanut Butter Cookies"
+  },
+  {
+    id: 3,
+    name: "Salted Caramel Cookies"
+  }
+];
+```
+
+2. Change the syntax from `js` to `json`:
 
 ```json
 [
@@ -153,21 +176,15 @@ app.get("/", (req, res) => {
 ]
 ```
 
-5. To export our data, we will use `export.modules` which is used to export modules in nodejs. We will add it at the end of our `cookies.js` file.
+3. What's cool about json files is that you don't need to export them and you can import them directly.
 
-```javascript
-module.exports = {
-  cookies
-};
-```
-
-6. Import your data in `app.js`. This is equivalent to the import in React.
+4. Import your data in `app.js`. This is equivalent to the import in React.
 
 ```javascript
 const cookies = require("./cookies");
 ```
 
-7. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and the we will pass the array of cookies to the `res.json` method.
+5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and the we will pass the array of cookies to the `res.json` method.
 
 ```javascript
 app.get("/cookies", (req, res) => {
@@ -175,4 +192,4 @@ app.get("/cookies", (req, res) => {
 });
 ```
 
-8. Test on web browser. Since it's a `get` method we can use the browser for testing as it's default method when making a request is `get`.
+6. Test your API on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
