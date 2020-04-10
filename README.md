@@ -134,7 +134,7 @@ app.get("/", (req, res) => {
 });
 ```
 
-4. Test your first API in a web browser
+4. Test your first endpoint in a web browser
 
 ### Cookie List:
 
@@ -192,4 +192,4 @@ app.get("/cookies", (req, res) => {
 });
 ```
 
-6. Test your API on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
+6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
