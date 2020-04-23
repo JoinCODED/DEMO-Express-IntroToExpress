@@ -33,6 +33,8 @@
    "main": "app.js",
    ```
 
+6. Create a `.gitignore` file. Google _gitignore file for Node_, copy and paste the code in your `.gitignore` file. An easier way is when you create a new repository on Github, click on `Add .gitignore` and choose node.
+
 ### Setup Express:
 
 1. Install Express
