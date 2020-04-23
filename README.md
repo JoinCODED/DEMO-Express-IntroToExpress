@@ -60,7 +60,7 @@ const app = express();
 4. To see the application somewhere, we need to set our development server manually using the listen method and passing it the port number.
 
 ```javascript
-app.listen(3000);
+app.listen(8000);
 ```
 
 5. Run the app **again**:
@@ -69,14 +69,14 @@ app.listen(3000);
     node app.js
 ```
 
-- Open the browser and go to `localhost:3000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
+- Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
 - The terminal (no indication that the server is running)
 
-6. The `listen()` method takes two arguments: the port number which will be 3000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
+6. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
 
 ```javascript
-app.listen(3000, () => {
-  console.log("The application is running on localhost:3000");
+app.listen(8000, () => {
+  console.log("The application is running on localhost:8000");
 });
 ```
 
