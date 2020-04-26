@@ -12,7 +12,9 @@
 ### Setup Github Repository:
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
+
 2. Click on `Add .gitignore` and choose node. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore those files and not add them to the repository.
+
 3. After creating the repo, clone it and let's start coding!
 
 ### Setup Nodejs:
@@ -42,7 +44,13 @@
    $ yarn add express
    ```
 
-2. Import `express` and create an instance of an express application.
+2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+
+   ```javascript
+   import express from "express";
+   ```
+
+3. Require `express` and create an instance of an express application.
 
    ```javascript
    const express = require("express");
@@ -50,19 +58,19 @@
    const app = express();
    ```
 
-3. Run the app. We have no idea where the app is running:
+4. Run the app. We have no idea where the app is running:
 
    ```shell
    $ node app.js
    ```
 
-4. To see the application somewhere, we need to set our development server's port manually using the listen method and passing it the port number.
+5. To see the application somewhere, we need to set our development server's port manually using the listen method and passing it the port number.
 
    ```javascript
    app.listen(8000);
    ```
 
-5. Run the app **again**:
+6. Run the app **again**:
 
    ```shell
    $ node app.js
@@ -71,7 +79,7 @@
    - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
    - The terminal (no indication that the server is running)
 
-6. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
+7. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
 
    ```javascript
    app.listen(8000, () => {
@@ -79,25 +87,25 @@
    });
    ```
 
-7. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
+8. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
 
-   ```shell
-   $ node app.js
-   ```
+```shell
+$ node app.js
+```
 
-8. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
+11. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
 
-   ```shell
-   $ yarn global add nodemon
-   ```
+```shell
+$ yarn global add nodemon
+```
 
-9. Run it and make changes to the `console.log` in `app.listen()`:
+11. Run it and make changes to the `console.log` in `app.listen()`:
 
-   ```shell
-   $ nodemon app.js
-   ```
+```shell
+$ nodemon app.js
+```
 
-10. Do you miss `yarn start`? It's okay, we can still use it by writing a script in `package.json`. Add the following `"scripts"` property in `package.json`:
+11. Do you miss `yarn start`? It's okay, we can still use it by writing a script in `package.json`. Add the following `"scripts"` property in `package.json`:
 
     ```javascript
     {
@@ -163,19 +171,25 @@
    ];
    ```
 
-2. Export your array using `modules.export`. This is equivalent to `export default cookies` in React.
+2. Export your array. This is causing an error. Why? You can't use this syntax in nodejs.
+
+   ```js
+   export default cookies;
+   ```
+
+3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
 
    ```js
    modules.export = cookies;
    ```
 
-3. Import your data in `app.js`. This is equivalent to the import in React.
+4. Require your data in `app.js`.
 
    ```javascript
    const cookies = require("./cookies");
    ```
 
-4. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
+5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
 
    ```javascript
    app.get("/cookies", (req, res) => {
@@ -183,7 +197,7 @@
    });
    ```
 
-5. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
+6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
 
 ---
 
