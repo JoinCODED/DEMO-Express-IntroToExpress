@@ -4,7 +4,7 @@
 
 - Backend Development
 - Request and Response Cycle
-- What do we expect from a request? What do we send as a repsonse?
+- What do we expect from a request? What do we send as a response?
 - Compare expected data with dummy data file in React (They should be the same)
 
 (Add discussion link here)
@@ -19,7 +19,7 @@
 
 ### Setup Nodejs:
 
-1. Create a `package.json` using the `init` command. A `package.json` indicates that this an environment for nodejs:
+1. Create a `package.json` using the `init` command. A `package.json` indicates that this is an environment for nodejs:
 
    ```shell
    $ cd myexpressproject
@@ -158,22 +158,22 @@ $ nodemon app.js
        name: "Chocolate Chip Cookies",
        price: 15,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg",
      },
      {
        id: 2,
        name: "Peanut Butter Cookies",
        price: 3,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg",
      },
      {
        id: 3,
        name: "Salted Caramel Cookies",
        price: 10,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg"
-     }
+         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg",
+     },
    ];
    ```
 
@@ -183,10 +183,10 @@ $ nodemon app.js
    export default cookies;
    ```
 
-3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
+3. Instead we will use `module.exports`. This is equivalent to `export default cookies`.
 
    ```js
-   modules.export = cookies;
+   module.exports = cookies;
    ```
 
 4. Require your data in `app.js`.
@@ -228,3 +228,5 @@ app.listen(8000, () => {
   console.log("The application is running on localhost:8000");
 });
 ```
+
+(REVIEW: no major changes just fixed typos)
