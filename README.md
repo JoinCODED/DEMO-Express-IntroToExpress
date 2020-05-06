@@ -1,4 +1,6 @@
-### Discussion:
+# Cookies List
+
+## Discussion:
 
 **Topics to discuss:**
 
@@ -6,18 +8,19 @@
 - Request and Response Cycle
 - What do we expect from a request? What do we send as a repsonse?
 - Compare expected data with dummy data file in React (They should be the same)
+- Review Express Architecture 
 
-(Add discussion link here)
+>*(Add discussion link here)*
 
-### Setup Github Repository:
+### Step 0: Setup Github Repository:
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
 
-2. Click on `Add .gitignore` and choose node. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore those files and not add them to the repository.
+2. Click on `Add .gitignore` and choose `Node`. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore those files and not add them to the repository.
 
 3. After creating the repo, clone it and let's start coding!
 
-### Setup Nodejs:
+### Step1: Setup Nodejs:
 
 1. Create a `package.json` using the `init` command. A `package.json` indicates that this an environment for nodejs:
 
@@ -32,11 +35,15 @@
 
 4. In `package.json` change the main file to `app.js`. This is just a naming convention:
 
-   ```javascript
-   "main": "app.js",
+   ```json
+   {
+      ...,
+      "main": "app.js",
+      ...,
+   }
    ```
 
-### Setup Express:
+### Step 2: Setup Express:
 
 1. Install Express
 
@@ -44,7 +51,8 @@
    $ yarn add express
    ```
 
-2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+2. Import `express`. This is causing an error. Why?\
+**You can't use this syntax in `nodejs`**. Instead we will _require_ `express`.
 
    ```javascript
    import express from "express";
@@ -76,7 +84,8 @@
    $ node app.js
    ```
 
-   - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
+   - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /` Why?\
+   This is because we haven't defined a `/` **route** that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
    - The terminal (no indication that the server is running)
 
 7. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
@@ -93,13 +102,13 @@
 $ node app.js
 ```
 
-11. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
+9. Use `nodemon` to run the app, as it watches for any changes in the app. Type `Cmd/Ctrl + q` to quit running `app.js` code and install `nodemon`:
 
 ```shell
 $ yarn global add nodemon
 ```
 
-11. Run it and make changes to the `console.log` in `app.listen()`:
+10. Run it and make changes to the `console.log` in `app.listen()`:
 
 ```shell
 $ nodemon app.js
@@ -117,9 +126,9 @@ $ nodemon app.js
     }
     ```
 
-### Routes:
+### Step 3: Creating Routes:
 
-1. Create your first route.
+Create your first route.
 
    ```javascript
    app.get("/", (req, res) => {
@@ -129,14 +138,28 @@ $ nodemon app.js
 
    Every route has the following:
 
-   - `app`: Our express app instance
-   - Method: An HTTP method (GET, POST, PUT, etc.)
-   - Route path (URL): The URL that will call this route when a request is sent to it.
-   - Handling function: What do you want to happen when this route is called?
+   - `app` : Our express app instance that we defined it above 
+   - Method: An HTTP method
+       - GET: `app.get`
+       - POST: `app.post`
+       - PUT: `app.put`
+       - DELETE: `app.delete`
+   
+       *we are choosing **GET** method to be our first route*
 
-2. What happens if you don't send back a response? The app will stay loading forever...
+   - Handling function: What do you want to happen when this route is called?\
+   \
+   *In our case, we are `console.log` **HELLO** in out handing function*
+       
+The route takes two parameters which are:
 
-3. Every request needs a response. Since we're sending back a list of items, the data must be in JSON format using JSON responses.
+   1. Route path (URL): The URL that will call this route when a request is sent to it. For our first route we used `"/"` to be our path
+
+   2. Route Request and Response `(req,res)`
+
+      - What happens if you don't send back a response? The app will stay loading forever...
+
+      - Every request needs a response. Since we're sending back a list of items, the data must be in JSON format using JSON responses.
 
    ```javascript
    app.get("/", (req, res) => {
@@ -145,9 +168,9 @@ $ nodemon app.js
    });
    ```
 
-4. Test your first endpoint in a web browser.
+Test your first endpoint in a web browser.
 
-### Cookie List:
+### Step 4:  Let's create our cookies list API
 
 1. Create a new file for your data, let's call it `cookies.js`. Copy the data from your React app (as the data should be coming from the backend now).
 
@@ -177,16 +200,23 @@ $ nodemon app.js
    ];
    ```
 
-2. Export your array. This is causing an error. Why? You can't use this syntax in nodejs.
+2. Export your array. 
 
    ```js
    export default cookies;
    ```
+   **Output on terminal:**
+   ```terminal
+   export default cookies;
+   ^^^^^^
+   SyntaxError: Unexpected token 'export
+   ```
+   This is causing an error. Why? You can't use this syntax in nodejs.
 
 3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
 
    ```js
-   modules.export = cookies;
+   module.exports = cookies;
    ```
 
 4. Require your data in `app.js`.
