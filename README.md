@@ -258,3 +258,21 @@ app.listen(8000, () => {
   console.log("The application is running on localhost:8000");
 });
 ```
+
+### Step 5: Upload your code to your repo on github
+
+1. confirm `all` changes
+```terminal
+git add .
+```
+2. commit with a proper message
+```terminal
+git commit -m "your message.."
+```
+3. push the code
+```terminal
+git push
+```
+
+
+
