@@ -186,7 +186,7 @@ $ nodemon app.js
 3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
 
    ```js
-   modules.export = cookies;
+   modules.export = cookies; //REVIEW: Shouldn't this be module.exports = cookies ?
    ```
 
 4. Require your data in `app.js`.
