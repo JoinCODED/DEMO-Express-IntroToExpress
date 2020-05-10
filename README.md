@@ -50,7 +50,7 @@
    import express from "express";
    ```
 
-   This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+   This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`. Delete this line and...
 
 3. Require `express` and create an instance of an express application.
 
