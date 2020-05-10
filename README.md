@@ -13,16 +13,16 @@
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
 
-2. Click on `Add .gitignore` and choose node. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore those files and not add them to the repository.
+2. Click on `Add .gitignore` and choose _Node_. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore and not add to the repository.
 
 3. After creating the repo, clone it and let's start coding!
 
 ### Setup Nodejs:
 
-1. Create a `package.json` using the `init` command. A `package.json` indicates that this an environment for nodejs:
+1. Create the nodejs environment:
 
    ```shell
-   $ cd myexpressproject
+   $ cd CookieShopAPI
    $ yarn init -y
    ```
 
@@ -44,11 +44,13 @@
    $ yarn add express
    ```
 
-2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+2. Import `express`.
 
    ```javascript
    import express from "express";
    ```
+
+   This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
 
 3. Require `express` and create an instance of an express application.
 
@@ -79,7 +81,7 @@
    - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
    - The terminal (no indication that the server is running)
 
-7. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
+7. The `listen()` method takes two arguments: the port number which will be `8000`, and a callback function -which is optional- that we will use to console log the port number in the terminal.
 
    ```javascript
    app.listen(8000, () => {
@@ -89,28 +91,28 @@
 
 8. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
 
-```shell
-$ node app.js
-```
+   ```shell
+   $ node app.js
+   ```
 
-11. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
+9. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
 
-```shell
-$ yarn global add nodemon
-```
+   ```shell
+   $ yarn global add nodemon
+   ```
 
-11. Run it and make changes to the `console.log` in `app.listen()`:
+10. Run it and make changes to the `console.log` in `app.listen()`:
 
-```shell
-$ nodemon app.js
-```
+    ```shell
+    $ nodemon app.js
+    ```
 
 11. Do you miss `yarn start`? It's okay, we can still use it by writing a script in `package.json`. Add the following `"scripts"` property in `package.json`:
 
     ```javascript
     {
-      "name": "test-project",
-      ...,
+      "name": "CookieShopAPI",
+      [...],
       "scripts": {
         "start": "nodemon app.js"
       }
