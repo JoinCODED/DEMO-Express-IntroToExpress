@@ -44,7 +44,7 @@
    $ yarn add express
    ```
 
-2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`. //REVIEW: Would be EXTRA clear if you said delete this line, or don't actually write the code from step 2, instead write the one in step 3. I know you said the word "instead", but it still kind of throws me off a bit by thinking: So does 'require express' do the same thing or should I first 'require express', then 'import' it?
 
    ```javascript
    import express from "express";
@@ -64,7 +64,7 @@
    $ node app.js
    ```
 
-5. To see the application somewhere, we need to set our development server's port manually using the listen method and passing it the port number.
+5. To see the application somewhere, we need to set our development server's port manually using the listen method and passing it the port number. //REVIEW: Mention this is in app.js
 
    ```javascript
    app.listen(8000);
@@ -87,7 +87,7 @@
    });
    ```
 
-8. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
+8. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). //REVIEW: No, it wasn't. Run the app **again**:
 
 ```shell
 $ node app.js
@@ -158,22 +158,22 @@ $ nodemon app.js
        name: "Chocolate Chip Cookies",
        price: 15,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg",
      },
      {
        id: 2,
        name: "Peanut Butter Cookies",
        price: 3,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg",
      },
      {
        id: 3,
        name: "Salted Caramel Cookies",
        price: 10,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg"
-     }
+         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg",
+     },
    ];
    ```
 
