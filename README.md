@@ -1,4 +1,4 @@
-### Discussion:
+## Discussion
 
 **Topics to discuss:**
 
@@ -9,7 +9,7 @@
 
 (Add discussion link here)
 
-### Setup Github Repository:
+## Setup Github Repository
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
 
@@ -17,7 +17,7 @@
 
 3. After creating the repo, clone it and let's start coding!
 
-### Setup Nodejs:
+## Setup Nodejs
 
 1. Create the nodejs environment:
 
@@ -36,7 +36,7 @@
    "main": "app.js",
    ```
 
-### Setup Express:
+## Setup Express
 
 1. Install Express
 
@@ -119,9 +119,9 @@
     }
     ```
 
-### Routes:
+## Routes
 
-1. Create your first route.
+1. Create your first route (above `app.listen(...)`).
 
    ```javascript
    app.get("/", (req, res) => {
@@ -149,7 +149,7 @@
 
 4. Test your first endpoint in a web browser.
 
-### Cookie List:
+## Cookie List
 
 1. Create a new file for your data, let's call it `cookies.js`. Copy the data from your React app (as the data should be coming from the backend now).
 
@@ -160,44 +160,48 @@
        name: "Chocolate Chip Cookies",
        price: 15,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg",
      },
      {
        id: 2,
        name: "Peanut Butter Cookies",
        price: 3,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg",
      },
      {
        id: 3,
        name: "Salted Caramel Cookies",
        price: 10,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg"
-     }
+         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg",
+     },
    ];
    ```
 
-2. Export your array. This is causing an error. Why? You can't use this syntax in nodejs.
+2. Export your array.
 
    ```js
    export default cookies;
    ```
 
-3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
+   This is causing an error. Why? You can't use this syntax in nodejs.
+
+3) Instead we will use `modules.export`.
 
    ```js
    modules.export = cookies;
    ```
 
-4. Require your data in `app.js`.
+   This is equivalent to `export default cookies`.
+
+4) Require your data in `app.js`.
 
    ```javascript
    const cookies = require("./cookies");
    ```
 
-5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
+5) Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `GET` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
 
    ```javascript
    app.get("/cookies", (req, res) => {
@@ -205,7 +209,7 @@
    });
    ```
 
-6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
+6) Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `GET`.
 
 ---
 
