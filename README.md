@@ -4,7 +4,7 @@
 
 - Backend Development
 - Request and Response Cycle
-- What do we expect from a request? What do we send as a repsonse?
+- What do we expect from a request? What do we send as a response?
 - Compare expected data with dummy data file in React (They should be the same)
 
 (Add discussion link here)
@@ -187,7 +187,7 @@
 
    This is causing an error. Why? You can't use this syntax in nodejs.
 
-3) Instead we will use `modules.export`.
+3) Instead we will use `module.exports`.
 
    ```js
    module.exports = cookies;
