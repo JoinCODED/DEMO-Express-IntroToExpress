@@ -190,7 +190,7 @@
 3) Instead we will use `modules.export`.
 
    ```js
-   modules.export = cookies;
+   module.exports = cookies;
    ```
 
    This is equivalent to `export default cookies`.
