@@ -1,4 +1,4 @@
-### Discussion:
+## Discussion
 
 **Topics to discuss:**
 
@@ -9,20 +9,20 @@
 
 (Add discussion link here)
 
-### Setup Github Repository:
+## Setup Github Repository
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
 
-2. Click on `Add .gitignore` and choose node. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore those files and not add them to the repository.
+2. Click on `Add .gitignore` and choose _Node_. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore and not add to the repository.
 
 3. After creating the repo, clone it and let's start coding!
 
-### Setup Nodejs:
+## Setup Nodejs
 
-1. Create a `package.json` using the `init` command. A `package.json` indicates that this an environment for nodejs:
+1. Create the nodejs environment:
 
    ```shell
-   $ cd myexpressproject
+   $ cd CookieShopAPI
    $ yarn init -y
    ```
 
@@ -36,7 +36,7 @@
    "main": "app.js",
    ```
 
-### Setup Express:
+## Setup Express
 
 1. Install Express
 
@@ -44,11 +44,13 @@
    $ yarn add express
    ```
 
-2. Import `express`. This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
+2. Import `express`.
 
    ```javascript
    import express from "express";
    ```
+
+   This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`.
 
 3. Require `express` and create an instance of an express application.
 
@@ -79,7 +81,7 @@
    - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
    - The terminal (no indication that the server is running)
 
-7. The `listen()` method takes two arguments: the port number which will be 8000, and a callback function -which is optional- that we will use to console log the port number in the terminal.
+7. The `listen()` method takes two arguments: the port number which will be `8000`, and a callback function -which is optional- that we will use to console log the port number in the terminal.
 
    ```javascript
    app.listen(8000, () => {
@@ -89,37 +91,37 @@
 
 8. Our changes are not showing. We need to restart the server every time!! (React was a blessing right?). Run the app **again**:
 
-```shell
-$ node app.js
-```
+   ```shell
+   $ node app.js
+   ```
 
-11. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
+9. Use `nodemon` to run the app, as it watches for any changes in the app. To install it:
 
-```shell
-$ yarn global add nodemon
-```
+   ```shell
+   $ yarn global add nodemon
+   ```
 
-11. Run it and make changes to the `console.log` in `app.listen()`:
+10. Run it and make changes to the `console.log` in `app.listen()`:
 
-```shell
-$ nodemon app.js
-```
+    ```shell
+    $ nodemon app.js
+    ```
 
 11. Do you miss `yarn start`? It's okay, we can still use it by writing a script in `package.json`. Add the following `"scripts"` property in `package.json`:
 
     ```javascript
     {
-      "name": "test-project",
-      ...,
+      "name": "CookieShopAPI",
+      [...],
       "scripts": {
         "start": "nodemon app.js"
       }
     }
     ```
 
-### Routes:
+## Routes
 
-1. Create your first route.
+1. Create your first route (above `app.listen(...)`).
 
    ```javascript
    app.get("/", (req, res) => {
@@ -147,7 +149,7 @@ $ nodemon app.js
 
 4. Test your first endpoint in a web browser.
 
-### Cookie List:
+## Cookie List
 
 1. Create a new file for your data, let's call it `cookies.js`. Copy the data from your React app (as the data should be coming from the backend now).
 
@@ -158,44 +160,48 @@ $ nodemon app.js
        name: "Chocolate Chip Cookies",
        price: 15,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg",
      },
      {
        id: 2,
        name: "Peanut Butter Cookies",
        price: 3,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg",
      },
      {
        id: 3,
        name: "Salted Caramel Cookies",
        price: 10,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg"
-     }
+         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg",
+     },
    ];
    ```
 
-2. Export your array. This is causing an error. Why? You can't use this syntax in nodejs.
+2. Export your array.
 
    ```js
    export default cookies;
    ```
 
-3. Instead we will use `modules.export`. This is equivalent to `export default cookies`.
+   This is causing an error. Why? You can't use this syntax in nodejs.
+
+3) Instead we will use `modules.export`.
 
    ```js
    modules.export = cookies;
    ```
 
-4. Require your data in `app.js`.
+   This is equivalent to `export default cookies`.
+
+4) Require your data in `app.js`.
 
    ```javascript
    const cookies = require("./cookies");
    ```
 
-5. Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `get` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
+5) Create a route that represents the list of cookies. Since the request wants to **fetch** data, we will use the `GET` method. We called the URL `/cookies` and then we will pass the array of cookies to the `res.json` method.
 
    ```javascript
    app.get("/cookies", (req, res) => {
@@ -203,7 +209,7 @@ $ nodemon app.js
    });
    ```
 
-6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `get`.
+6) Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `GET`.
 
 ---
 
