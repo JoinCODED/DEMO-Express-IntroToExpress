@@ -1,3 +1,5 @@
+# Cookie List
+
 ## Discussion
 
 **Topics to discuss:**
@@ -9,15 +11,15 @@
 
 (Add discussion link here)
 
-## Setup Github Repository
+## Step 0: Setup Github Repository
 
 1. Create a new repository for your backend. I'll call mine `CookieShopAPI`.
 
-2. Click on `Add .gitignore` and choose _Node_. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore and not add to the repository.
+2. Click on `Add .gitignore` and choose `Node`. This is to add a file called `.gitignore` that has the name of directories and files that github will ignore and not add to the repository.
 
 3. After creating the repo, clone it and let's start coding!
 
-## Setup Nodejs
+## Step 1: Setup Nodejs
 
 1. Create the nodejs environment:
 
@@ -33,10 +35,14 @@
 4. In `package.json` change the main file to `app.js`. This is just a naming convention:
 
    ```javascript
-   "main": "app.js",
+   {
+      [...],
+      "main": "app.js",
+      [...]
+   }
    ```
 
-## Setup Express
+## Step 2: Setup Express
 
 1. Install Express
 
@@ -50,7 +56,7 @@
    import express from "express";
    ```
 
-   This is causing an error. Why? You can't use this syntax in nodejs. Instead we will _require_ `express`. Delete this line and...
+   This is causing an error. Why? **You can't use this syntax in nodejs**. Instead we will _require_ `express`. Delete this line and...
 
 3. Require `express` and create an instance of an express application.
 
@@ -78,7 +84,8 @@
    $ node app.js
    ```
 
-   - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. This is because we haven't defined a `/` route that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
+   - Open the browser and go to `localhost:8000`, you'll receive a `404` status and a message saying `Cannot GET /`. Why?\
+     This is because we haven't defined a `/` **route** that sends a response when it's called. But don't worry! If you get this error it means you're on the right path.
    - The terminal (no indication that the server is running)
 
 7. The `listen()` method takes two arguments: the port number which will be `8000`, and a callback function -which is optional- that we will use to console log the port number in the terminal.
@@ -119,37 +126,41 @@
     }
     ```
 
-## Routes
+## Step 3: Routes
 
-1. Create your first route (above `app.listen(...)`).
+Create your first route (above `app.listen(...)`).
 
-   ```javascript
-   app.get("/", (req, res) => {
-     console.log("HELLO");
-   });
-   ```
+```javascript
+app.get("/", (req, res) => {
+  console.log("HELLO");
+});
+```
 
-   Every route has the following:
+Every route has the following:
 
-   - `app`: Our express app instance
-   - Method: An HTTP method (GET, POST, PUT, etc.)
-   - Route path (URL): The URL that will call this route when a request is sent to it.
-   - Handling function: What do you want to happen when this route is called?
+- `app`: Our express app instance
+- Method: An HTTP method (GET, POST, PUT, etc.)
+- Route path (URL): The URL that will call this route when a request is sent to it.
+- Handling function: What do you want to happen when this route is called?\
+  _Right now, we are `console.log`ging "**HELLO**" in our handling function._
 
-2. What happens if you don't send back a response? The app will stay loading forever...
+The route takes two parameters which are:
 
-3. Every request needs a response. Since we're sending back a list of items, the data must be in JSON format using JSON responses.
+1. Route path (URL): The URL that will call this route when a request is sent to it.
+2. Callback function
+   - What happens if you don't send back a response? The app will stay loading forever...
+   - Every request needs a response. Since we're sending back a list of items, the data must be in JSON format using JSON responses.
 
-   ```javascript
-   app.get("/", (req, res) => {
-     console.log("HELLO");
-     res.json({ message: "Hello World" });
-   });
-   ```
+```javascript
+app.get("/", (req, res) => {
+  console.log("HELLO");
+  res.json({ message: "Hello World" });
+});
+```
 
-4. Test your first endpoint in a web browser.
+Test your first endpoint in a web browser.
 
-## Cookie List
+## Step 4: Cookie List
 
 1. Create a new file for your data, let's call it `cookies.js`. Copy the data from your React app (as the data should be coming from the backend now).
 
