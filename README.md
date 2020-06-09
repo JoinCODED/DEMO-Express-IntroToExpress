@@ -221,27 +221,3 @@ Test your first endpoint in a web browser.
    ```
 
 6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `GET`.
-
-## Step 5 - CORS
-
-To give a browser access to the backend we need to use CORS.
-
-1. Let's install it first
-
-```shell
-  $ yarn add cors
-```
-
-2. Now, require it in `app.js`.
-
-```javascript
-const cors = require("cors");
-```
-
-3. To activate it, we will use the method `app.use` and call `cors` inside it. This should be right under creating our express app.
-
-```javascript
-const app = express();
-
-app.use(cors());
-```
