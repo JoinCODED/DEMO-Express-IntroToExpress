@@ -171,22 +171,22 @@ Test your first endpoint in a web browser.
        name: "Chocolate Chip Cookies",
        price: 15,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg",
      },
      {
        id: 2,
        name: "Peanut Butter Cookies",
        price: 3,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg"
+         "https://images-gmi-pmc.edge-generalmills.com/dcd4f799-7353-4e56-ba50-623581cba3bc.jpg",
      },
      {
        id: 3,
        name: "Salted Caramel Cookies",
        price: 10,
        image:
-         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg"
-     }
+         "https://images-gmi-pmc.edge-generalmills.com/586da0ed-8a79-4390-9137-f60852ca312a.jpg",
+     },
    ];
    ```
 
@@ -222,26 +222,26 @@ Test your first endpoint in a web browser.
 
 6. Test your endpoint on your web browser. Since it's a `get` method we can use the browser for testing as its default method when making a request is `GET`.
 
----
+## Step 5 - CORS
 
-Your `app.js` should look like this by this point:
+To give a browser access to the backend we need to use CORS.
+
+1. Let's install it first
+
+```shell
+  $ yarn add cors
+```
+
+2. Now, require it in `app.js`.
 
 ```javascript
-const express = require("express");
-const cookies = require("./cookies");
+const cors = require("cors");
+```
 
+3. To activate it, we will use the method `app.use` and call `cors` inside it. This should be right under creating our express app.
+
+```javascript
 const app = express();
 
-app.get("/", (req, res) => {
-  console.log("HELLO");
-  res.json({ message: "Hello World" });
-});
-
-app.get("/cookies", (req, res) => {
-  res.json(cookies);
-});
-
-app.listen(8000, () => {
-  console.log("The application is running on localhost:8000");
-});
+app.use(cors());
 ```
