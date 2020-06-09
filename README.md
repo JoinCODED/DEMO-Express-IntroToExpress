@@ -8,6 +8,7 @@
 - Request and Response Cycle
 - What do we expect from a request? What do we send as a response?
 - Compare expected data with dummy data file in React (They should be the same)
+- JSON
 
 (Add discussion link here)
 
