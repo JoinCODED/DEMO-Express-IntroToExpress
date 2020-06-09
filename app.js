@@ -1,10 +1,7 @@
 const express = require("express");
 const cookies = require("./cookies");
-const cors = require("cors");
 
 const app = express();
-app.use(cors());
-
 app.use(cors());
 
 app.get("/", (req, res) => {
