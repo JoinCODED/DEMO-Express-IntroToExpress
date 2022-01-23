@@ -25,6 +25,8 @@
    ```shell
    $ cd Facts-API
    $ yarn init -y
+   OR
+   $ npm init
    ```
 
 2. Open code in VSCode and explore `package.json`.
