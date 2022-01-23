@@ -49,6 +49,8 @@
 
    ```shell
    $ yarn add express
+   OR
+   $ npm i express
    ```
 
 2. Import `express`.
