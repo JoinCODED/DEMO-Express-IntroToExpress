@@ -119,7 +119,7 @@
     ```shell
     $ yarn global add nodemon
     OR 
-    $ npm i nodemon
+    $ npm install -g nodemon
     ```
 
 11. Run it and make changes to the `console.log` in `app.listen()`:
